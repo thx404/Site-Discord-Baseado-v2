@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Meu Site de Chat</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="index.css">
+
+  <script>
+    function adicionarMensagem() {
+      // Pega a mensagem digitada pelo usuário
+      const mensagem = document.querySelector("#formulario input[type='text']").value;
+      const nomeUsuario = "leref";
+      const avatar = "https://imgur.com/8nLFCVP.png";
+      const botAvatar = "https://imgur.com/axQvJfv.png";
+      const botNome = "Bot";
+  
+      // Verifica se a mensagem é "oi" e adiciona a resposta do bot
+      if (mensagem === "oi") {
+        const respostaBot = "Olá, como posso ajudar?";
+  
+        const mensagens = document.querySelector("#mensagens");
+        const novaMensagemUsuario = document.createElement("li");
+        novaMensagemUsuario.innerHTML = `
+          <img src="${avatar}" width="50" height="50" />
+          <span>${nomeUsuario}: ${mensagem}</span>
+        `;
+        mensagens.appendChild(novaMensagemUsuario);
+  
+        const novaMensagemBot = document.createElement("li");
+        novaMensagemBot.innerHTML = `
+          <img src="${botAvatar}" width="50" height="50" />
+          <span>${botNome}: ${respostaBot}</span>
+        `;
+        mensagens.appendChild(novaMensagemBot);
+      } else {
+        // Adiciona a mensagem na lista de mensagens
+        const mensagens = document.querySelector("#mensagens");
+        const novaMensagem = document.createElement("li");
+        novaMensagem.innerHTML = `
+          <img src="${avatar}" width="50" height="50" />
+          <span>${nomeUsuario}: ${mensagem}</span>
+        `;
+        mensagens.appendChild(novaMensagem);
+      }
+  
+      // Limpa o formulário
+      document.querySelector("#formulario input[type='text']").value = "";
+  
+      // Previne o comportamento padrão de recarregar a página ao clicar no botão de envio
+      return false;
+    }
+
+    if (mensagem === ".servidor") {
+        const novaBolinha = document.createElement("div");
+        novaBolinha.setAttribute("class", "bolinha");
+        mensagens.appendChild(novaBolinha);
+      }
+
+
+  </script>
+  
+   
+</head>
+
+<body>
+  <header>
+    <h1>Meu Site de Chat</h1>
+</header>
+
+  <main>
+    <section id="chat">
+      <h2>Chat</h2>
+      <ul id="mensagens">
+        <li>Olá, Bem Vindo ao meu Site! &copy; Bryan</li>
+      </ul>
+      <form id="formulario" onsubmit="return adicionarMensagem();">
+        <input type="text" placeholder="Digite sua mensagem aqui">
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+  <button id="botao-servidor" style="display: none;">Servidor</button>
+  <footer>
+    &copy; Meu Site de Chat
+  </footer>
+
+</body>
+
+</html>
