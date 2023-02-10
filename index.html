@@ -11,7 +11,7 @@
     function adicionarMensagem() {
       // Pega a mensagem digitada pelo usuário
       const mensagem = document.querySelector("#formulario input[type='text']").value;
-      const nomeUsuario = "leref";
+      const nomeUsuario = "seu-nome";
       const avatar = "https://imgur.com/8nLFCVP.png";
       const botAvatar = "https://imgur.com/axQvJfv.png";
       const botNome = "Bot";
@@ -73,7 +73,7 @@
     <section id="chat">
       <h2>Chat</h2>
       <ul id="mensagens">
-        <li>Olá, Bem Vindo ao meu Site! &copy; Bryan</li>
+        <li>Olá, Bem Vindo ao meu Site! &copy; Seu Nome</li>
       </ul>
       <form id="formulario" onsubmit="return adicionarMensagem();">
         <input type="text" placeholder="Digite sua mensagem aqui">
